@@ -14,6 +14,9 @@ const WsSubscription: FunctionComponent<Props> = ({ sessionId, onConnected, onRe
   const onSubmitForm = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (!subscription)
+      return;
+
     const form = e.target;
     subscription.perform('pitch', { sessionId: sessionId, text: form.text.value });
 
