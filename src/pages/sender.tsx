@@ -30,7 +30,6 @@ const SenderPage: NextPage<Props> = ({}: Props) => {
       </div>
       <form onSubmit={onSubmitText}>
         <div>
-          <label className="block" for="text">Text</label>
           <textarea className="border rounded" id="text" name="text" />
         </div>
         <div>
