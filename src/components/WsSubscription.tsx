@@ -1,5 +1,5 @@
 import { FormEvent, FunctionComponent, useCallback, useEffect, useState } from 'react';
-import { createConsumer } from '@rails/actioncable';
+import { Subscription, createConsumer } from '@rails/actioncable';
 import { v4 as uuidv4 } from 'uuid';
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 };
 
 const WsSubscription: FunctionComponent<Props> = ({ sessionId, onConnected, onReceived }: Props) => {
-  const [subscription, setSubscription] = useState(undefined);
+  const [subscription, setSubscription] = useState<Subscription | undefined>(undefined);
 
   const onSubmitForm = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

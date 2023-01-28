@@ -14,7 +14,7 @@ const WsReceiverPage: NextPage<Props> = ({}: Props) => {
   const [sessionId, setSessionId] = useState<string | undefined>(undefined);
 
   const senderLink = useMemo(() => {
-    const senderLink = `http://localhost:3001/ws/sender?session=${sessionId}`;
+    const senderLink = `${process.env.NEXT_PUBLIC_SENDER_PAGE_BASE_URL}?session=${sessionId}`;
     console.log(senderLink);
     return senderLink;
   }, [sessionId]);
