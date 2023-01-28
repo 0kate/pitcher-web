@@ -16,21 +16,6 @@ const ReceiverPage: NextPage<Props> = ({}: Props) => {
   }, [data]);
 
   useEffect(() => {
-    if (!data?.sessionId) return;
-
-    const intervalId = setInterval(async () => {
-      const unreceived = await utils.text.getUnreceived.fetch({ sessionId: data.sessionId });
-      console.log(unreceived);
-
-      if (unreceived.text) {
-        setUnreceivedText(unreceived.text);
-        clearInterval(intervalId);
-      }
-    }, 2000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
   }, [utils, data]);
 
   useEffect(() => {

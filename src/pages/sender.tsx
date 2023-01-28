@@ -2,25 +2,13 @@ import { useCallback, FormEvent } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Button from '../components/Button';
-import { api } from '../utils/api';
 
 type Props = {};
 
 const SenderPage: NextPage<Props> = ({}: Props) => {
   const { query } = useRouter();
-  const mutation = api.text.send.useMutation();
-
   const onSubmitText = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const form = e.target;
-    mutation.mutate({
-      sessionId: query.session as string,
-      // @ts-ignore
-      text: form.text.value,
-    });
-    // @ts-ignore
-    form.reset();
   }, [query]);
 
   return (
