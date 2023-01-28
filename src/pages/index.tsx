@@ -2,10 +2,8 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 
-import { api } from "../utils/api";
-
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  /* const hello = api.example.hello.useQuery({ text: "from tRPC" }); */
 
   return (
     <>
@@ -27,9 +25,6 @@ const Home: NextPage = () => {
               <h3 className="text-2xl font-bold text-[hsl(280,100%,70%)]">Sender</h3>
             </Link>
           </div>
-          <p className="text-2xl text-white">
-            {hello.data ? hello.data.greeting : "Loading tRPC query..."}
-          </p>
         </div>
       </main>
     </>
