@@ -18,8 +18,10 @@ const WsSubscription: FunctionComponent<Props> = ({ sessionId, onConnected, onRe
       return;
 
     const form = e.target;
+    // @ts-ignore
     subscription.perform('pitch', { sessionId: sessionId, text: form.text.value });
 
+    // @ts-ignore
     form.reset();
   }, [subscription, sessionId]);
 

@@ -15,8 +15,10 @@ const WsSenderSubscription: FunctionComponent<Props> = ({ sessionId }: Props) =>
       return;
 
     const form = e.target;
+    // @ts-ignore
     subscription.perform('pitch', { text: form.text.value, session_id: sessionId });
 
+    // @ts-ignore
     form.reset();
   }, [subscription, sessionId]);
 
@@ -33,7 +35,6 @@ const WsSenderSubscription: FunctionComponent<Props> = ({ sessionId }: Props) =>
         console.log('sender connected');
       },
       disconnected() {},
-      received(data) {},
     });
     setSubscription(subscription);
   }, [sessionId]);
