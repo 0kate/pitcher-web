@@ -22,7 +22,7 @@ const WsReceiverPage: NextPage<Props> = ({}: Props) => {
   return (
     <div>
       <SubscriptionComponent
-        sessionId={sessionId}
+        sessionId={sessionId || ''}
         onConnected={(sessionId: string) => setSessionId(sessionId)}
         onReceived={setReceivedText}
       />

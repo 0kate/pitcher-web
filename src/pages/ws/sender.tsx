@@ -16,7 +16,7 @@ const WsSenderPage: NextPage<Props> = ({}: Props) => {
 
   return (
     <div>
-      <SubscriptionComponent sessionId={query.session} />
+      <SubscriptionComponent sessionId={query.session as string || ''} />
     </div>
   );
 };

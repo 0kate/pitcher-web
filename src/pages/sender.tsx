@@ -16,8 +16,10 @@ const SenderPage: NextPage<Props> = ({}: Props) => {
     const form = e.target;
     mutation.mutate({
       sessionId: query.session as string,
+      // @ts-ignore
       text: form.text.value,
     });
+    // @ts-ignore
     form.reset();
   }, [query]);
 
